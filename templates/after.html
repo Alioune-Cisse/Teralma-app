@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Résultats</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Répartitions dépenses</h2>
+  <p>Les tableaux suivants indiquent la répartition de votre budget</p>
+  <div class="row">
+  {%for categ, vals in data3.items()%}
+      <!--div class="col-sm-2">
+        <span></span>
+      </div-->
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>{{categ}}</th>
+        <th>Prévisions</th>
+      </tr>
+    </thead>
+
+    {%for elt in vals%}
+    <tbody>
+    {%for i, j in elt.items()%}
+      <tr>
+        <td>{{i}}</td>
+        <td>{{round(j)}} FCFA</td>
+      </tr>
+    {%endfor%}
+    {%endfor%}
+    </tbody>
+
+  </table>
+    {%endfor%}
+    </div>
+</div>
+
+</body>
+</html>
